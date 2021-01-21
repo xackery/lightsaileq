@@ -1,0 +1,2 @@
+# lightsaileq
+EQ Lightsail Config
