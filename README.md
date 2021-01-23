@@ -40,8 +40,15 @@ wget https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_s
 perl eqemu_server.pl opcodes
 perl eqemu_server.pl patches
 sudo nano /etc/mysql/conf.d/mysql.cnf
-# on bottom, add the line:
-sql_mode = ''
+```
+# on bottom, add the lines:
+```
+[mysqld]
+
+sql_mode=NO_ENGINE_SUBSTITUTION
+```
+now restart mysql
+```
 sudo service mysql restart
 ## TODO: source your database
 ```
