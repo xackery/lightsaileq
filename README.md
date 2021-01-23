@@ -2,7 +2,7 @@
 EQ Lightsail Config
 
 ubuntu 18.04
-
+```
 sudo apt install build-essential \
     gcc-5 g++-5 libtool cmake curl debconf-utils \
     git git-core libio-stringy-perl liblua5.1 \
@@ -19,7 +19,7 @@ sudo apt install python-software-properties
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y php5.6
-
+```
 (for rebuildeq)
 ```
 cd ~/
@@ -35,12 +35,15 @@ Host github.com
         IdentityFile ~/.ssh/test.rebuildeq.com
 # next, clone repo
 git clone git@github.com:xackery/rebuildeq.git src
-# or make a server bin folder, e.g.
-mkdir -p ~/eq/server
 git clone git@github.com:rebuildeq/plugins.git
 git clone git@github.com:rebuildeq/quests.git
 git clone git@github.com:rebuildeq/lua_modules.git
 git clone git@github.com:rebuildeq/maps.git
+```
+for any EQ
+```
+# or make a server bin folder, e.g.
+mkdir -p ~/eq/server
 wget https://raw.githubusercontent.com/Akkadius/eqemu-install-v2/master/eqemu_config.json
 nano eqemu_config.json
 # edit to your heart's content
