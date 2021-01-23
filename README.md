@@ -1,6 +1,9 @@
 # lightsaileq
 EQ Lightsail Config
 
+bzcat file.sql.bz2 | mysql -u root -p peq
+mysqldump -u root -p peq --lock-tables=false | bzip2 > file.sql.bz2
+
 ubuntu 18.04
 ```
 sudo apt update
