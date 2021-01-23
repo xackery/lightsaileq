@@ -3,6 +3,7 @@ EQ Lightsail Config
 
 ubuntu 18.04
 ```
+sudo apt update
 sudo apt install build-essential \
     gcc-5 g++-5 libtool cmake curl debconf-utils \
     git git-core libio-stringy-perl liblua5.1 \
@@ -40,7 +41,7 @@ nano ~/.ssh/config
 # into config, do next 3 lines:
 Host github.com
         User git
-        IdentityFile ~/.ssh/test.rebuildeq.com
+        IdentityFile ~/.ssh/githubkey
 mkdir -p ~/eq/server
 wget https://raw.githubusercontent.com/Akkadius/eqemu-install-v2/master/eqemu_config.json
 nano eqemu_config.json
@@ -81,6 +82,7 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y php5.6 php5.6-mbstring hugo
 # next, clone repo
+cd ~/eq/
 # git clone git@github.com:xackery/rebuildeq.git src #commented out, copy binaries built elsewhere, faster
 git clone git@github.com:rebuildeq/plugins.git
 git clone git@github.com:rebuildeq/quests.git
@@ -95,7 +97,7 @@ chmod 777 /var/www/application/logs
 chmod 777 /var/www/application/cache
 sudo nano /etc/apache2/apache2.conf
 # Search for <Directory /var/www/>, you'll see an entry AllowOverride None, change it to AllowOverride All
-sudo a2enmode rewrite
+sudo a2enmod rewrite
 sudo service apache2 restart
 cd /var/www/hugo
 hugo
@@ -105,5 +107,5 @@ nano /var/www/application/config/database.php
 unlink /var/www/html/changelog
 ln -s /var/www/hugo/public /var/www/html/changelog
 
-# in database, variables table, update site to your test's url
+# in database, variables table, update site to your test's url e.g. http://test.rebuildeq.com
 ```
