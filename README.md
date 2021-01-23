@@ -13,6 +13,12 @@ sudo apt install build-essential \
     nano open-vm-tools unzip uuid-dev iputils-ping \
     zlibc wget \
     gdb valgrind mysql-server
+wget http://ftp.us.debian.org/debian/pool/main/libs/libsodium/libsodium-dev_1.0.11-2_amd64.deb -O /tmp/libsodium-dev.deb
+wget http://ftp.us.debian.org/debian/pool/main/libs/libsodium/libsodium18_1.0.11-2_amd64.deb -O /tmp/libsodium18.deb
+sudo dpkg -i /tmp/libsodium*.deb
+rm -f /tmp/libsodium-dev.deb
+rm -f /tmp/libsodium18.deb
+
 sudo mysql_secure_installation
 sudo hostname <server>
 cd ~/
@@ -33,6 +39,10 @@ nano eqemu_config.json
 wget https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_server.pl
 perl eqemu_server.pl opcodes
 perl eqemu_server.pl patches
+sudo nano /etc/mysql/conf.d/mysql.cnf
+# on bottom, add the line:
+sql_mode = ''
+sudo service mysql restart
 ## TODO: source your database
 ```
 (for non-rebuildeq)
