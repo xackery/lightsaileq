@@ -12,7 +12,8 @@ sudo apt install build-essential \
     minizip make mariadb-client locales \
     nano open-vm-tools unzip uuid-dev iputils-ping \
     zlibc wget \
-    gdb valgrind mysql-server
+    gdb valgrind 
+sudo apt install mysql-server
 wget http://ftp.us.debian.org/debian/pool/main/libs/libsodium/libsodium-dev_1.0.11-2_amd64.deb -O /tmp/libsodium-dev.deb
 wget http://ftp.us.debian.org/debian/pool/main/libs/libsodium/libsodium18_1.0.11-2_amd64.deb -O /tmp/libsodium18.deb
 sudo dpkg -i /tmp/libsodium*.deb
