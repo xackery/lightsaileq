@@ -40,13 +40,24 @@ perl eqemu_server.pl patches
 sudo apt install python-software-properties
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt install -y php5.6
+sudo apt install -y php5.6 php5.6-mbstring hugo
 # next, clone repo
 # git clone git@github.com:xackery/rebuildeq.git src #commented out, copy binaries built elsewhere, faster
 git clone git@github.com:rebuildeq/plugins.git
 git clone git@github.com:rebuildeq/quests.git
 git clone git@github.com:rebuildeq/lua_modules.git
 git clone git@github.com:rebuildeq/maps.git
+sudo rm -rf /var/www
+sudo mkdir -p /var/www
+cd /var/www
+sudo chown -R ubuntu /var/www
+git clone git@github.com:rebuildeq/web.git .
+chmod 777 /var/www/application/logs
+chmod 777 /var/www/application/cache
+sudo a2enmode rewrite
+sudo service apache2 restart
+cd /var/www/hugo
+hugo
 ```
 (for non-rebuildeq)
 ```
