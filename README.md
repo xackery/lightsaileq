@@ -15,13 +15,6 @@ sudo apt install build-essential \
     gdb valgrind mysql-server
 sudo mysql_secure_installation
 sudo hostname <server>
-```
-(for rebuildeq)
-```
-sudo apt install python-software-properties
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update
-sudo apt install -y php5.6
 cd ~/
 mkdir eq
 cd eq
@@ -33,27 +26,29 @@ nano ~/.ssh/config
 Host github.com
         User git
         IdentityFile ~/.ssh/test.rebuildeq.com
-# next, clone repo
-git clone git@github.com:xackery/rebuildeq.git src
-git clone git@github.com:rebuildeq/plugins.git
-git clone git@github.com:rebuildeq/quests.git
-git clone git@github.com:rebuildeq/lua_modules.git
-git clone git@github.com:rebuildeq/maps.git
-```
-for any EQ
-```
-# or make a server bin folder, e.g.
 mkdir -p ~/eq/server
 wget https://raw.githubusercontent.com/Akkadius/eqemu-install-v2/master/eqemu_config.json
 nano eqemu_config.json
 # edit to your heart's content
 wget https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_server.pl
-
-## from your local PC, copy built binaries
-scp ~/src/bin/zone target:~/eq/server/
-## and source your database!! (No instruction)
-
 perl eqemu_server.pl opcodes
 perl eqemu_server.pl patches
+## TODO: source your database
+```
+(for rebuildeq)
+```
+sudo apt install python-software-properties
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install -y php5.6
+# next, clone repo
+# git clone git@github.com:xackery/rebuildeq.git src #commented out, copy binaries built elsewhere, faster
+git clone git@github.com:rebuildeq/plugins.git
+git clone git@github.com:rebuildeq/quests.git
+git clone git@github.com:rebuildeq/lua_modules.git
+git clone git@github.com:rebuildeq/maps.git
+```
+(for non-rebuildeq)
+```
 
 ```
