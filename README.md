@@ -12,7 +12,10 @@ sudo apt install build-essential \
     minizip make mariadb-client locales \
     nano open-vm-tools unzip uuid-dev iputils-ping \
     zlibc wget \
-    gdb valgrind mariadb-server
-
+    gdb valgrind mysql-server
+sudo mysql_secure_installation
 sudo hostname <server>
-myql_secure_installation
+sudo apt install python-software-properties
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install -y php5.6
