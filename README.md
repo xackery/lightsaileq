@@ -19,6 +19,14 @@ sudo dpkg -i /tmp/libsodium*.deb
 rm -f /tmp/libsodium-dev.deb
 rm -f /tmp/libsodium18.deb
 
+# add swap
+sudo fallocate -l 1G /swapfile 
+sudo chmod 600 /swapfile 
+sudo mkswap /swapfile 
+sudo swapon /swapfile 
+sudo cp /etc/fstab /etc/fstab.bak 
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
 sudo mysql_secure_installation
 sudo hostname <server>
 cd ~/
