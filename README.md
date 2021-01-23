@@ -35,6 +35,19 @@ perl eqemu_server.pl opcodes
 perl eqemu_server.pl patches
 ## TODO: source your database
 ```
+(for non-rebuildeq)
+```
+# if you didn't source your database, you can use:
+perl eqemu_server.pl source_peq_db
+# above as an alternative
+perl eqemu_server.pl quests
+perl eqemu_server.pl lua_modules
+perl eqemu_server.pl plugins
+perl eqemu_server.pl maps
+perl eqemu_server.pl check_db_updates
+```
+
+
 (for rebuildeq)
 ```
 sudo apt install python-software-properties
@@ -65,15 +78,4 @@ nano /var/www/application/config/database.php
 # change any password '' fields to your mysql password
 unlink /var/www/html/changelog
 ln -s /var/www/hugo/public /var/www/html/changelog
-```
-(for non-rebuildeq)
-```
-# if you didn't source your database, you can use:
-perl eqemu_server.pl source_peq_db
-# above as an alternative
-perl eqemu_server.pl quests
-perl eqemu_server.pl lua_modules
-perl eqemu_server.pl plugins
-perl eqemu_server.pl maps
-perl eqemu_server.pl check_db_updates
 ```
