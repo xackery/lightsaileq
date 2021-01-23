@@ -15,13 +15,13 @@ sudo apt install build-essential \
     gdb valgrind mysql-server
 sudo mysql_secure_installation
 sudo hostname <server>
+```
+(for rebuildeq)
+```
 sudo apt install python-software-properties
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y php5.6
-```
-(for rebuildeq)
-```
 cd ~/
 mkdir eq
 cd eq
