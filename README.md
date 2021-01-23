@@ -19,3 +19,38 @@ sudo apt install python-software-properties
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y php5.6
+
+(for rebuildeq)
+```
+cd ~/
+mkdir eq
+cd eq
+ssh-keygen -f ~/.ssh/githubkey
+cat ~/.ssh/githubkey.pub
+# log into github, Top right avatar, settings, SSH and PGP keys, new SSH key, # paste in ssh-rsa lines in.
+nano ~/.ssh/config
+# into config, do next 3 lines:
+Host github.com
+        User git
+        IdentityFile ~/.ssh/test.rebuildeq.com
+# next, clone repo
+git clone git@github.com:xackery/rebuildeq.git src
+# or make a server bin folder, e.g.
+mkdir -p ~/eq/server
+git clone git@github.com:rebuildeq/plugins.git
+git clone git@github.com:rebuildeq/quests.git
+git clone git@github.com:rebuildeq/lua_modules.git
+git clone git@github.com:rebuildeq/maps.git
+wget https://raw.githubusercontent.com/Akkadius/eqemu-install-v2/master/eqemu_config.json
+nano eqemu_config.json
+# edit to your heart's content
+wget https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_server.pl
+
+## from your local PC, copy built binaries
+scp ~/src/bin/zone target:~/eq/server/
+## and source your database!! (No instruction)
+
+perl eqemu_server.pl opcodes
+perl eqemu_server.pl patches
+
+```
