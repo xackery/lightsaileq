@@ -50,5 +50,12 @@ git clone git@github.com:rebuildeq/maps.git
 ```
 (for non-rebuildeq)
 ```
-
+# if you didn't source your database, you can use:
+perl eqemu_server.pl source_peq_db
+# above as an alternative
+perl eqemu_server.pl quests
+perl eqemu_server.pl lua_modules
+perl eqemu_server.pl plugins
+perl eqemu_server.pl maps
+perl eqemu_server.pl check_db_updates
 ```
