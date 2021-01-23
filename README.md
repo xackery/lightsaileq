@@ -78,4 +78,6 @@ nano /var/www/application/config/database.php
 # change any password '' fields to your mysql password
 unlink /var/www/html/changelog
 ln -s /var/www/hugo/public /var/www/html/changelog
+
+# in database, variables table, update site to your test's url
 ```
