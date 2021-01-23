@@ -82,7 +82,7 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y php5.6 php5.6-mbstring hugo
 # next, clone repo
-cd ~/eq/
+cd ~/eq/server/
 # git clone git@github.com:xackery/rebuildeq.git src #commented out, copy binaries built elsewhere, faster
 git clone git@github.com:rebuildeq/plugins.git
 git clone git@github.com:rebuildeq/quests.git
