@@ -54,10 +54,17 @@ sudo chown -R ubuntu /var/www
 git clone git@github.com:rebuildeq/web.git .
 chmod 777 /var/www/application/logs
 chmod 777 /var/www/application/cache
+sudo nano /etc/apache2/apache2.conf
+# Search for <Directory /var/www/>, you'll see an entry AllowOverride None, change it to AllowOverride All
 sudo a2enmode rewrite
 sudo service apache2 restart
 cd /var/www/hugo
 hugo
+cp /var/www/application/config/database.txt /var/www/application/config/database.php
+nano /var/www/application/config/database.php
+# change any password '' fields to your mysql password
+unlink /var/www/html/changelog
+ln -s /var/www/hugo/public /var/www/html/changelog
 ```
 (for non-rebuildeq)
 ```
